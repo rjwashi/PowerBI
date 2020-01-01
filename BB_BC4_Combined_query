@@ -1,0 +1,129 @@
+import pyodbc
+import pandas as pd
+
+
+def queryData():
+    query = """ 
+    select * from General_AP
+    """
+    return query
+
+def queryData1():
+    query = """ 
+    select * from General_AR
+    """
+    return query
+
+def queryData2():
+    query = """ 
+    select * from General_Inv
+    """
+    return query
+
+def queryData3():
+    query = """ 
+    select * from Customers
+    """
+    return query
+
+def queryData4():
+    query = """ 
+    select * from Vendors
+    """
+    return query
+
+
+#, General_AR, General_Inv, Vendors, Company
+
+def connectDSN():
+    '''
+    Connect to a DSN using the odbc client, UID, PWD
+    '''
+    conn_str = 'Driver={Pervasive ODBC Client Interface};ServerName=192.168.5.10;ServerDSN=BlueData;PvTranslate=auto;UID=Peachtree;PWD=1qaz!QA'
+    db = pyodbc.connect(conn_str)
+    #db.setencoding(encoding='utf-8')
+    return db
+    
+
+DF = pd.read_sql(queryData(), connectDSN())
+DF = DF.loc[:, (DF != 0).any(axis=0)]
+DF
+
+DF1 = pd.read_sql(queryData1(), connectDSN())
+DF1 = DF1.loc[:, (DF1 != 0).any(axis=0)]
+DF1
+
+DF2 = pd.read_sql(queryData2(), connectDSN())
+DF2 = DF2.loc[:, (DF2 != 0).any(axis=0)]
+DF2
+
+DF3 = pd.read_sql(queryData3(), connectDSN())
+DF3 = DF3.loc[:, (DF3 != 0).any(axis=0)]
+DF3
+
+DF4 = pd.read_sql(queryData4(), connectDSN())
+DF4 = DF4.loc[:, (DF4 != 0).any(axis=0)]
+DF4
+
+
+def queryData5():
+    query = """ 
+    select * from General_AP
+    """
+    return query
+
+def queryData6():
+    query = """ 
+    select * from General_AR
+    """
+    return query
+
+def queryData7():
+    query = """ 
+    select * from General_Inv
+    """
+    return query
+
+def queryData8():
+    query = """ 
+    select * from Customers
+    """
+    return query
+
+def queryData9():
+    query = """ 
+    select * from Vendors
+    """
+    return query
+
+
+#, General_AR, General_Inv, Vendors, Company
+
+def connectDSN1():
+    '''
+    Connect to a DSN using the odbc client, UID, PWD
+    '''
+    conn_str = 'Driver={Pervasive ODBC Client Interface};ServerName=192.168.5.10;ServerDSN=BC4;PvTranslate=auto;UID=Peachtree;PWD=1qaz!QA'
+    db = pyodbc.connect(conn_str)
+    #db.setencoding(encoding='utf-8')
+    return db
+    
+DF5 = pd.read_sql(queryData5(), connectDSN1())
+DF5 = DF5.loc[:, (DF5 != 0).any(axis=0)]
+DF5
+
+DF6 = pd.read_sql(queryData6(), connectDSN1())
+DF6 = DF6.loc[:, (DF6 != 0).any(axis=0)]
+DF6
+
+DF7 = pd.read_sql(queryData7(), connectDSN1())
+DF7 = DF7.loc[:, (DF7 != 0).any(axis=0)]
+DF7
+
+DF8 = pd.read_sql(queryData8(), connectDSN1())
+DF8 = DF8.loc[:, (DF8 != 0).any(axis=0)]
+DF8
+
+DF9 = pd.read_sql(queryData9(), connectDSN1())
+DF9 = DF9.loc[:, (DF9 != 0).any(axis=0)]
+DF9
